@@ -1,0 +1,55 @@
+<nav
+  class="fixed top-0 left-0 w-full z-50 transition-all duration-300"
+  [ngClass]="{ 'bg-white/90 backdrop-blur-lg shadow-md': scrolled, 'bg-transparent': !scrolled }"
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex justify-between items-center h-16">
+      <!-- Logo -->
+      <a href="#home" class="flex items-center gap-3">
+        <img src="/assets/logo.svg" alt="Logo" class="h-8 w-8 object-contain" />
+        <span class="text-xl font-semibold text-gray-800">TravelNow</span>
+      </a>
+
+      <!-- Desktop Links (md and up) -->
+      <ul class="lg:flex hidden items-center space-x-8 text-gray-700">
+        <li *ngFor="let item of navItems" class="relative">
+          <a
+            [href]="item.href"
+            (click)="scrollToSection($event, item.href)"
+            class="px-1 py-1 transition-colors"
+            [ngClass]="{ 'text-teal-500 font-semibold': active === item.key }"
+          >
+            {{ item.label }}
+          </a>
+
+          <!-- small underline animation -->
+          <span
+            *ngIf="active === item.key"
+            class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-6 h-0.5 bg-teal-500 rounded"
+          ></span>
+        </li>
+      </ul>
+
+      <!-- Mobile - compact icon bar in the same navbar container (shown on small screens) -->
+      <div class="flex lg:hidden items-center">
+        <div class="flex gap-2">
+          <button
+            *ngFor="let item of navItems"
+            (click)="scrollToSection($event, item.href)"
+            class="flex flex-col items-center justify-center px-3 py-1 rounded-full transition-all"
+            [ngClass]="{
+              'text-white bg-teal-500 shadow-lg': active === item.key,
+              'text-gray-300 hover:text-white hover:bg-gray-800/30': active !== item.key
+            }"
+            aria-label="{{ item.label }}"
+            title="{{ item.label }}"
+          >
+            <!-- item.icon is an inline SVG (see TS for definitions) -->
+            <span [innerHTML]="item.icon" class="block h-5 w-5 mb-0.5"></span>
+            <span class="text-xs">{{ item.short }}</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

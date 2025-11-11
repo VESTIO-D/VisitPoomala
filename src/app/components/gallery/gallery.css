@@ -1,0 +1,65 @@
+/* src/app/components/gallery/gallery.component.scss */
+h2{ margin:0 0 .5rem }
+.muted{ color: var(--muted); margin:0 0 1.25rem }
+
+.grid{
+  display:grid; gap: clamp(.5rem, 2.5vw, 1rem);
+  grid-template-columns: repeat(auto-fill, minmax(140px,1fr));
+}
+.thumb{ overflow:hidden; padding:0 }
+.thumb img{
+  display:block; width:100%; aspect-ratio: 4/3; object-fit:cover;
+  transform: scale(1.02);
+  transition: transform .35s ease, filter .35s ease;
+  filter: saturate(95%) contrast(105%);
+}
+.thumb:hover img{ transform: scale(1.06); filter: saturate(110%) contrast(110%) }
+
+/* CSS-only Lightbox via :target */
+.lightbox{
+  position:fixed; inset:0; display:none; place-items:center;
+  background: rgba(0,0,0,.78); z-index:9999; padding: clamp(12px,4vw,24px);
+}
+.lightbox:target{ display:grid; }
+.lb__img{
+  max-width:min(92vw,1100px); max-height:80vh; border-radius:16px;
+  box-shadow: var(--shadow);
+}
+.lb__close{
+  position:absolute; inset:0; display:block; content:"";
+}
+.lb__nav{
+  position:absolute; top:50%; transform: translateY(-50%);
+  width:48px; height:48px; border-radius:50%;
+  background: rgba(255,255,255,.14);
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+}
+.lb__nav:hover{ background: rgba(255,255,255,.22) }
+.lb__nav.prev{ left: clamp(8px, 3vw, 24px) }
+.lb__nav.next{ right: clamp(8px, 3vw, 24px) }
+
+/* Horizontal strip with CSS Scroll Snap (good on mobile) */
+.strip{
+  margin-top: clamp(14px, 3vw, 22px);
+  display:flex; gap:.75rem; overflow-x:auto; padding-bottom:.5rem;
+  scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+}
+.strip img{
+  height:96px; aspect-ratio: 4/3; object-fit:cover; border-radius:12px;
+  scroll-snap-align: start;
+  border:1px solid rgba(255,255,255,.06);
+}
+.lightbox{position:fixed;inset:0;display:none;place-items:center;padding:16px;background:rgba(255,255,255,.9);z-index:60}
+.lightbox:target{display:grid}
+.lb-img{max-width:min(92vw,1100px);max-height:80vh;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,.15)}
+.lb-close{position:absolute;inset:0;display:block}
+.lb-prev,.lb-next{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;border-radius:9999px;background:rgba(0,0,0,.08)}
+.lb-prev{left:12px}.lb-next{right:12px}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

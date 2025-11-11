@@ -1,0 +1,52 @@
+<section class="min-h-screen flex items-center justify-center bg-linear-to-b from-gray-50 to-gray-100 px-6 py-12">
+  <div class="shadow-2xl w-full flex items-center justify-center">
+    <form
+    (submit)="sendEmail($event)"
+    class="bg-white  rounded-xl p-8 md:p-12 max-w-4xl w-full space-y-6"
+  >
+    <h2 class="text-3xl font-semibold text-gray-800 text-center">Get in Touch</h2>
+    <p class="text-gray-500 text-center text-sm">We’d love to hear from you! Fill out the form below.</p>
+
+    <!-- Grid for Name & Phone -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <input
+        type="text"
+        name="name"
+        placeholder="Your Name"
+        required
+        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition"
+      />
+      <input
+        type="tel"
+        name="phonenumber"
+        placeholder="Phone Number"
+        required
+        class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition"
+      />
+    </div>
+
+    <input
+      type="email"
+      name="email"
+      placeholder="Email Address"
+      required
+      class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition"
+    />
+
+    <textarea
+      name="message"
+      placeholder="Your Message"
+      rows="5"
+      required
+      class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 outline-none transition resize-none"
+    ></textarea>
+
+    <button
+      type="submit"
+      class="w-full bg-blue-600 hover:bg-blue-700 text-white font-medium py-3 rounded-lg transition-transform transform hover:scale-[1.02]"
+    >
+      Send Message
+    </button>
+  </form>
+  </div>
+</section>

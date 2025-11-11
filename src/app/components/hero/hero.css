@@ -1,0 +1,15 @@
+/* src/app/components/hero/hero.component.scss */
+.hero{
+  position:relative; min-height: 70vh;
+  background-image: var(--hero-url);
+  background-size: cover; background-position: center;
+  display:grid; place-items:center; text-align:center;
+}
+.hero__overlay{
+  position:absolute; inset:0;
+  background: radial-gradient(60% 60% at 50% 40%, rgba(14,16,22,.25), rgba(11,14,18,.7)),
+              linear-gradient(180deg, rgba(11,14,18,.3), rgba(11,14,18,.8));
+}
+.hero__content{ position:relative }
+.hero h1{ margin:0 0 .5rem }
+.hero p{ color: var(--muted); margin:0 0 1rem }

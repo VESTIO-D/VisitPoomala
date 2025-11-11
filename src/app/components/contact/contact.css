@@ -1,0 +1,13 @@
+/* src/app/components/contact/contact.component.scss */
+.form{ display:grid; gap:.75rem; padding: clamp(12px, 2.5vw, 18px) }
+input, textarea{
+  width:100%; background:#0d1117; color:var(--text);
+  border:1px solid rgba(255,255,255,.08); border-radius:12px;
+  padding:.75rem .9rem; outline:none;
+}
+input:focus, textarea:focus{ border-color: rgba(125,83,255,.6) }
+textarea{ min-height: 120px; resize: vertical }
+/* contact.css */
+form {
+  transition: all 0.3s ease;
+}

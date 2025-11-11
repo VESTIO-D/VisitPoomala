@@ -1,0 +1,8 @@
+/* src/app/components/whatsapp-fab/whatsapp-fab.component.scss */
+.fab{
+  position:fixed; right:16px; bottom:16px; z-index:100;
+  width:54px; height:54px; display:grid; place-items:center;
+  border-radius:50%; background:#25D366; color:#072b1d; text-decoration:none;
+  box-shadow: 0 14px 28px rgba(37,211,102,.32);
+}
+.fab:hover{ filter: brightness(1.05) saturate(1.05) }

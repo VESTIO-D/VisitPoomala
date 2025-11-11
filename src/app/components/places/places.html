@@ -1,0 +1,12 @@
+<section id="places" class="py-10 bg-gray-50">
+  <h2 class="text-3xl font-semibold text-center mb-6 text-gray-800">Top Destinations</h2>
+  <div class="grid grid-cols-2 md:grid-cols-3 gap-4 px-4">
+    <div *ngFor="let place of places" class="bg-white shadow rounded-xl overflow-hidden hover:shadow-lg transition">
+      <img [src]="place.image" class="h-40 w-full object-cover">
+      <div class="p-3 text-center">
+        <h3 class="text-lg font-semibold text-gray-800">{{ place.name }}</h3>
+        <p class="text-sm text-gray-500">{{ place.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>

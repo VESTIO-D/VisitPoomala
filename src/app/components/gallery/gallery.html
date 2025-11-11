@@ -1,0 +1,59 @@
+<section id="gallery" class="py-10 bg-gray-100">
+  <h2 class="text-3xl font-semibold text-center mb-6 text-gray-800">Gallery</h2>
+
+  <!-- Thumbnail list -->
+  <div class="flex overflow-x-auto space-x-4 px-4 snap-x snap-mandatory scrollbar-hide">
+    <img
+      *ngFor="let img of images; let i = index"
+      [src]="img"
+      alt="Gallery image"
+      (click)="openModal(i)"
+      class="h-60 w-80 object-cover rounded-xl snap-center cursor-pointer hover:scale-105 transition-transform"
+    />
+  </div>
+
+  <!-- Fullscreen Modal -->
+<div
+  *ngIf="isModalOpen"
+  class="fixed inset-0 bg-black bg-opacity-90 flex justify-center items-center z-50"
+  (click)="closeModal()"
+>
+  <!-- Inner container (prevents closing when clicking inside content) -->
+  <div
+    class="relative flex items-center justify-center w-full h-full px-6"
+    (click)="$event.stopPropagation()"
+  >
+    <!-- Close button -->
+    <button
+      (click)="closeModal()"
+      class="absolute top-6 right-6 text-white text-3xl font-bold p-2 rounded-full hover:bg-white/10 focus:outline-none z-50"
+      aria-label="Close gallery"
+    >
+      &times;
+    </button>
+
+    <!-- Left Arrow -->
+    <button
+      (click)="prevImage()"
+      class="absolute left-4 md:left-10 text-white text-4xl hover:text-gray-300 z-50"
+    >
+      ‹
+    </button>
+
+    <!-- Current Image -->
+    <img
+      [src]="images[currentIndex]"
+      class="max-h-[85vh] max-w-[90vw] rounded-lg object-contain transition-transform duration-300"
+    />
+
+    <!-- Right Arrow -->
+    <button
+      (click)="nextImage()"
+      class="absolute right-4 md:right-10 text-white text-4xl hover:text-gray-300 z-50"
+    >
+      ›
+    </button>
+  </div>
+</div>
+</section>
+
